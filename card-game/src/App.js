@@ -4,9 +4,9 @@ import './App.css';
 const word = "Hello";
 function App() {
   return (
-    <div className = 'card'>
-    <WordCard value="hello"/>
+    <div>
+      <WordCard value="hello" />
     </div>
-    );
+  );
 }
 export default App;
