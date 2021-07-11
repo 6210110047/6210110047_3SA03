@@ -39,6 +39,10 @@ function App() {
     }
   }
 
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
   return (
     <div>
       <div className="center">
@@ -49,6 +53,9 @@ function App() {
       </div>
       <div className="center">
         <p> find the correct answer ( adjacent characters ) from Hint : {hint} </p>
+      </div>
+      <div className="centerTable">
+        <button onClick={refreshPage}>Refresh</button>
       </div>
     </div>
   );
