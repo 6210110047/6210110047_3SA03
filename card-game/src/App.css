@@ -51,3 +51,12 @@
   color: red;
   background: pink;
  }
+
+ .center {
+  border: 5px solid red;
+  text-align: center;
+}
+
+.centerTable {
+  text-align: center;
+}
