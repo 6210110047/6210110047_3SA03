@@ -32,10 +32,12 @@ function App() {
     if (c) {
       // console.log("c is true");
       // console.log(random)
-      random = Math.floor(Math.random() * words.length);
-      randomWord = words[random];
-      // console.log(random)
-      console.log("new word : " + randomWord)
+      // random = Math.floor(Math.random() * words.length);
+      // randomWord = words[random];
+      // // console.log(random)
+      // console.log("new word : " + randomWord)
+      alert("you guessed the correct word !")
+      window.location.reload();
     }
   }
 
