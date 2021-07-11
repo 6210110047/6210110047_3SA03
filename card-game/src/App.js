@@ -32,7 +32,7 @@ function App() {
         <p> *** playable only 6x6 table *** </p>
       </div>
       <div className="centerTable">
-        <WordCard value={wordSearchTable}/>
+        <WordCard value={wordSearchTable} word={randomWord}/>
       </div>
       <div className="center">
         <p> find the correct answer ( adjacent characters ) from Hint : {hint} </p>
