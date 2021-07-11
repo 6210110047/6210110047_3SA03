@@ -32,6 +32,7 @@ export default function WordCard(props) {
             if (guess == setWord.current) {
                 console.log('yeah!')
                 setState({ ...state, completed: true })
+                props.activationHandler(true)
             }
             else {
                 console.log('reset, next attempt')

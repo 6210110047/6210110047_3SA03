@@ -1,10 +1,10 @@
 import React from 'react';
 import WordCard from './WordCard';
 import './App.css';
-const wordSearchTable = "SHOUSEBESHOEANARDRLOARUELEODCHSWBIKH";
-const words = ["HOUSE", "SHOE", "BALL", "DUCK", "SEARCH", "WORD", "ICE"];
-const random = Math.floor(Math.random() * words.length);
-const randomWord = words[random];
+var wordSearchTable = "SHOUSEBESHOEANARDRLOARUELEODCHSWBIKH";
+var words = ["HOUSE", "SHOE", "BALL", "DUCK", "SEARCH", "WORD", "ICE"];
+var random = Math.floor(Math.random() * words.length);
+var randomWord = words[random];
 let hint = "";
 if (randomWord == "HOUSE") {
   hint = "favorite building"
@@ -15,7 +15,7 @@ if (randomWord == "HOUSE") {
 } else if (randomWord == "DUCK") {
   hint = "animal that can swim"
 } else if (randomWord == "SEARCH") {
-  hint = "find synonym"
+  hint = "synonym of find"
 } else if (randomWord == "WORD") {
   hint = "what you are looking for"
 } else if (randomWord == "ICE") {
@@ -26,13 +26,20 @@ if (randomWord == "HOUSE") {
 console.log(words[random]);
 
 function App() {
+  const activationHandler = (c) => {
+    if(c) {
+      console.log("c is true");
+      random = Math.floor(Math.random() * words.length);
+      randomWord = words[random];
+    }
+  }
   return (
     <div>
       <div className="center">
         <p> *** playable only 6x6 table *** </p>
       </div>
       <div className="centerTable">
-        <WordCard value={wordSearchTable} word={randomWord}/>
+        <WordCard value={wordSearchTable} word={randomWord} activationHandler={activationHandler}/>
       </div>
       <div className="center">
         <p> find the correct answer ( adjacent characters ) from Hint : {hint} </p>
