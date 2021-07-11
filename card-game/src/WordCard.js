@@ -27,18 +27,18 @@ export default function WordCard(props) {
                 console.log('yeah!')
                 setState({ ...state, completed: true })
             }
-        else {
-            console.log('reset, next attempt')
-            setState({ ...state, guess: '', attempt: state.attempt + 1 })
+            else {
+                console.log('reset, next attempt')
+                setState({ ...state, guess: '', attempt: state.attempt + 1 })
+            }
+            console.log(guess)
         }
-        console.log(guess)
     }
-}
 
     return (
         <div>
             {
-                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt}/>)
+                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} />)
             }
         </div>
     );

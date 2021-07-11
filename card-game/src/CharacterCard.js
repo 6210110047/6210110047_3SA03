@@ -9,7 +9,7 @@ export default function CharacterCard(props) {
             props.activationHandler(props.value)
         }
     }
-    
+
     useEffect(() => {
         if (attemptRef.current != props.attempt) {
             setActive(false)
