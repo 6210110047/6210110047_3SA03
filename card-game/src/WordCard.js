@@ -38,7 +38,7 @@ export default function WordCard(props) {
                 console.log('reset, next attempt')
                 setState({ ...state, guess: '', attempt: state.attempt + 1 })
             }
-            console.log(guess)
+            // console.log(guess)
         }
     }
 

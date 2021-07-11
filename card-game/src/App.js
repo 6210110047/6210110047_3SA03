@@ -29,22 +29,23 @@ console.log(words[random])
 
 function App() {
   const activationHandler = (c) => {
-    if(c) {
-      console.log("c is true");
-      console.log(random)
+    if (c) {
+      // console.log("c is true");
+      // console.log(random)
       random = Math.floor(Math.random() * words.length);
       randomWord = words[random];
-      console.log(random)
-      console.log(randomWord)
+      // console.log(random)
+      console.log("new word : " + randomWord)
     }
   }
+
   return (
     <div>
       <div className="center">
         <p> *** playable only 6x6 table *** </p>
       </div>
       <div className="centerTable">
-        <WordCard value={wordSearchTable} word={randomWord} activationHandler={activationHandler}/>
+        <WordCard value={wordSearchTable} word={randomWord} activationHandler={activationHandler} />
       </div>
       <div className="center">
         <p> find the correct answer ( adjacent characters ) from Hint : {hint} </p>
