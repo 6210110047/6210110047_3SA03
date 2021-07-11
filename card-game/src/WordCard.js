@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import _, { attempt } from 'lodash';
+
 import CharacterCard from './CharacterCard';
-import _ from 'lodash';
-var state
-const prepareStateFromWord = (given_word) => {
+
+
+const prepareStateFromWord = given_word => {
     let word = given_word.toUpperCase()
     let chars = _.shuffle(Array.from(word))
     return {
@@ -13,29 +15,31 @@ const prepareStateFromWord = (given_word) => {
         completed: false
     }
 }
-const activationHandler = (c) => {
-    console.log(`${c} has been activated.`)
-    let guess = state.guess + c
-    // state.guess = guess
-    if (guess.length == state.word.length) {
-        if (guess == state.word) {
-            console.log('yeah!')
-            state.guess = ''
-            state.completed = true
+
+export default function WordCard(props) {
+    const [state, setState] = useState(prepareStateFromWord(props.value))
+    const activationHandler = (c) => {
+        console.log(`${c} has been activated.`)
+        let guess = state.guess + c
+        setState({ ...state, guess })
+        if (guess.length == state.word.length) {
+            if (guess == state.word) {
+                console.log('yeah!')
+                setState({ ...state, completed: true })
+            }
+        else {
+            console.log('reset, next attempt')
+            setState({ ...state, guess: '', attempt: state.attempt + 1 })
         }
-    } else {
-        console.log('reset')
-        state.guess = ''
-        state.attempt = state.attempt + 1
+        console.log(guess)
     }
 }
 
-
-export default function WordCard(props) {
-    state = prepareStateFromWord(props.value)
     return (
         <div>
-            {Array.from(state.chars).map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} />)}
+            {
+                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt}/>)
+            }
         </div>
     );
 }
