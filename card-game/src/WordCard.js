@@ -6,10 +6,10 @@ import CharacterCard from './CharacterCard';
 
 const prepareStateFromWord = given_word => {
     let word = given_word.toUpperCase()
-    let chars = _.shuffle(Array.from(word))
+    // let chars = _.shuffle(Array.from(word))
     return {
         word,
-        chars,
+        // chars,
         attempt: 1,
         guess: '',
         completed: false
@@ -38,7 +38,7 @@ export default function WordCard(props) {
     return (
         <div>
             {
-                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} />)
+                Array.from(state.word).map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} />)
             }
         </div>
     );
