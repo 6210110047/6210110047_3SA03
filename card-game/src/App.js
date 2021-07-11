@@ -1,10 +1,12 @@
 import React from 'react';
 import WordCard from './WordCard';
 import './App.css';
-var wordSearchTable = "SHOUSEBESHOEANARDRLOARUELEODCHSWBIKH";
-var words = ["HOUSE", "SHOE", "BALL", "DUCK", "SEARCH", "WORD", "ICE"];
-var random = Math.floor(Math.random() * words.length);
-var randomWord = words[random];
+
+var wordSearchTable = "SHOUSEBESHOEANARDRLOARUELEODCHSWBIKH"
+var words = ["HOUSE", "SHOE", "BALL", "DUCK", "SEARCH", "WORD", "ICE"]
+var random = Math.floor(Math.random() * words.length)
+var randomWord = words[random]
+
 let hint = "";
 if (randomWord == "HOUSE") {
   hint = "favorite building"
@@ -23,14 +25,17 @@ if (randomWord == "HOUSE") {
 } else {
   hint = ""
 }
-console.log(words[random]);
+console.log(words[random])
 
 function App() {
   const activationHandler = (c) => {
     if(c) {
       console.log("c is true");
+      console.log(random)
       random = Math.floor(Math.random() * words.length);
       randomWord = words[random];
+      console.log(random)
+      console.log(randomWord)
     }
   }
   return (
